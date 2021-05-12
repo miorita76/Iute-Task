@@ -139,4 +139,12 @@ function dataSend() {
 
     console.log(temp);
     localStorage.setItem('amount', JSON.stringify(temp));
-}
+};
+
+function dataRecieve() {
+    document.querySelector(".modal-window").classList.add("visually-hidden");
+
+    // Trimitere spre server si dupa primirea raspunsului
+
+    document.getElementById("modal_answer").classList.remove("visually-hidden");
+};
