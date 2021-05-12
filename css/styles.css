@@ -1,7 +1,19 @@
 body {
     background-color: #F0EBDA;
 }
-
+.visually-hidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    -webkit-clip-path: inset(100%);
+            clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
 
 /* +++++ MODAL +++++ start +++++ */
 .modal-window {
@@ -189,11 +201,14 @@ body {
     background-color: rgb(160, 163, 153);
 }
 .btn-cancel,
-.btn-cancel:hover {
+.btn-cancel:hover,
+.btn-close,
+.btn-close:hover {
     color: black;
     background-color:#e7e7e7;
 }
-.btn-cancel:active {
+.btn-cancel:active,
+.btn-close:active {
     color: black;
     background-color: rgb(160, 163, 153);
 }
@@ -291,7 +306,7 @@ body {
     padding: 0;
 }
 .modal-window_footer button {
-    margin: 5px;
+    margin: 10px 5px 5px 5px;
 }
 /* +++++ MODAL +++++ end +++++ */
 
@@ -366,3 +381,104 @@ body {
     color: black;
 }
 /* ---------- INDEX ----- end ---------- */
+/* ---------- modal RASPUNS ----- start ---------- */
+.modal-window_answer {
+    display: block;   /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+
+    padding-top: 20%; /* Location of the box */
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+.modal-window_answer .modal-window_content {
+    position: relative;
+    background-color: #f4f4f4;
+
+    margin: auto;
+    padding: 0;
+
+    width: 55%;
+    border: 1px solid #888;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop-answer;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop-answer;
+    animation-duration: 0.4s
+}
+  
+  /* Add Animation */
+@-webkit-keyframes animatetop-answer {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+@keyframes animatetop-answer {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.modal-window_header {
+    height: 50px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.board-devider {
+    height: 2px;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+    background-color: #efefef;
+    border: none;
+}
+
+.modal-window_body-text {
+    margin: 0;
+    padding: 20px;
+}
+
+/* The Close Button */
+.modal-window_header-close {
+    margin: 0;
+    padding: 3px 8px 0 0;
+    font-family: Tahoma, sans-serif;
+    color: black;
+    text-align: center;
+    font-size: 25px;
+  
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.5);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  .modal-window_header-close:hover,
+  .modal-window_header-close:focus {
+    color: red;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-window_header-title {
+    margin: 0;
+    padding: 0 0 0 2%;
+    font-family: Tahoma, sans-serif;
+    color: gray;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+  }
+/* ---------- modal RASPUNS ----- end ---------- */
